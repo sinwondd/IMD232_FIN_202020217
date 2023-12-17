@@ -38,8 +38,6 @@ function draw() {
   // captureDot();
   captureIR();
   image(cam, 0, 0);
-  translate(width, 0);
-  scale(-1, 1);
 
   if (cam.width > 0 && model !== undefined) {
     const imgData = drawingContext.getImageData(0, 0, width, height);
@@ -56,6 +54,7 @@ function draw() {
 
         let textSizeVal = 18;
         textSize(textSizeVal);
+
         fill(255);
         noStroke();
         text(p.class + ': ' + nf(p.score, 0, 4), x + 10, y + 15);
