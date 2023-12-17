@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMD232 FINAL 김신원 202020217</title>
+    <link
+      href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      rel="stylesheet"
+      type="text/css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Elsie:wght@400;900&display=swap" rel="stylesheet">
+    <script src="../../plugin/prism/prism.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+    <script src="./p5Util.js" defer></script>
+
+    <script>
+      // 팝업 열기 함수
+      function openPopup() {
+        document.getElementById('popup').style.display = 'block';
+      }
+
+      // 팝업 닫기 함수
+      function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+      }
+
+      // 페이지 로드 시 팝업 두둥
+      window.onload = function () {
+        openPopup();
+      };
+    </script>
+  </head>
+  <body>
+    <div class="section nav">
+      <div class="container">
+        <div class="wrapper">
+          <div class="nav__logo">ANIMAL VISION</div>
+
+          <div class="nav__menu button">
+            <a href="https://www.youtube.com/watch?v=b6o9DENzSo4">MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="hero1" class="section main">
+      <div class="container">
+        <div class="wrapper">
+          <div class="main__text">
+            <h3>How animals see the world?</h3>
+            <p>
+              사람과 동물은 빛을 통해 물체를 인식합니다. 빛이 물페에 반사되어
+              눈에 들어온 뒤, 눈은 그 빛을 감지하여 물체를 인식합니다. 하지만
+              사람의 눈이 받아들이는 빛과 동물들이 받아들이는 빛은 그 범위가
+              미묘하게 다릅니다. 인간의 눈은 ‘가시광선’을 인식하는 반면 다른 동물들은 가시광선 외의 자외선까지도
+              인식할 수 있다고 합니다. 다시 말해, 눈에서 인지할 수 있는 파장의
+              차이가 보는 것의 차이를 만들어 내는 것입니다.
+            </p>
+
+            <div class="section main">
+                <div class="image-group">
+                  <img src="/img/drag.png" alt="" />
+                  <a href="./sketch1/index.html">DRAGONFLY</a>
+                </div>
+              
+                <div class="image-group">
+                  <img src="/img/sna.png" alt="" />
+                  <a href="./sketch2/index.html">SNAKE</a>
+                </div>
+              
+                <div class="image-group">
+                  <img src="/img/pig.png" alt="" />
+                  <a href="./sketch3/index.html">PIGEON</a>
+                </div>
+              </div>
+                     
+
+      <!-- 팝업 내용을 담을 div -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p>
+            본 프로젝트는 다양한 과학적 근거를 기반으로 하며, 저의 상상력을 더한
+            예제들을 선보입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
