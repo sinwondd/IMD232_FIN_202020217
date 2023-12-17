@@ -38,6 +38,8 @@ function draw() {
   // captureDot();
   captureIR();
   image(cam, 0, 0);
+  translate(width, 0);
+  scale(-1, 1);
 
   if (cam.width > 0 && model !== undefined) {
     const imgData = drawingContext.getImageData(0, 0, width, height);

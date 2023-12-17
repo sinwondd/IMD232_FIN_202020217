@@ -3,15 +3,7 @@ let rotationAngle = 0;
 let filterAdd;
 
 function setup() {
-  setCanvasContainer('canvas', 4, 3, true);
-
-  const constraints = {
-    video: {
-      width: { exact: 320 },
-      height: { exact: 240 },
-    },
-    audio: false,
-  };
+  setCanvasContainer('canvas', 3, 2, true);
 
   Vid = createCapture(VIDEO);
   Vid.size(width, height);
@@ -24,6 +16,8 @@ function setup() {
 
 function draw() {
   background(0);
+  translate(width, 0);
+  scale(-1, 1);
 
   Vid.position(0, 0);
 

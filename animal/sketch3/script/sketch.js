@@ -18,6 +18,8 @@ function setup() {
 function draw() {
   background('white');
   captureMagnify();
+  translate(width, 0);
+  scale(-1, 1);
 }
 
 function captureMagnify() {
