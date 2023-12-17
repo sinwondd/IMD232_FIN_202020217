@@ -12,14 +12,13 @@ function setup() {
     },
     audio: false,
   };
-  noStroke();
 
   Vid = createCapture(VIDEO);
   Vid.size(width, height);
   Vid.hide();
-
+  noStroke();
   filterAdd = createGraphics(width, height);
-  noLoop();
+
   console.log(Vid);
 }
 
@@ -63,11 +62,13 @@ function draw() {
       push();
       translate(bouncingX, bouncingY);
       rotate(rotationAngle);
+
       rect(-dia / 2, -dia / 2, dia, dia); // 위치지정
       pop();
 
       fill(random(255), random(255), random(255), 60);
       // rectMode(CENTER);
+
       circle(x + gridSize / 2, y + gridSize / 2, dia);
     }
   }
