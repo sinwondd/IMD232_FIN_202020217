@@ -1,5 +1,8 @@
+// Based on JEFF THOMPSONs simple face detection in p5js on his youtube channer
+// https://www.youtube.com/watch?v=jovusqHNpRo
+// 뱀과 비둘기 예제는 교수님 상담 통해서 완성한 코드이고 제프 톰슨꺼 재구성하여 합쳐서 완성했습니다
 let cam;
-let model;
+let something;
 
 function setup() {
   setCanvasContainer('canvas', 4, 3, true);
@@ -24,10 +27,11 @@ function setup() {
   cam = createCapture(constraints);
   cam.hide();
 
+  // 콘솔에 로딩이 뜨고 로디드가 뜨면 detection이 화면에 표시
   console.log('loading model...');
   cocoSsd.load().then((cocoSsd) => {
     console.log('- loaded');
-    model = cocoSsd;
+    something = cocoSsd;
   });
 
   background('white');
@@ -37,18 +41,20 @@ function draw() {
   background('white');
   // captureDot();
   captureIR();
+
   image(cam, 0, 0);
 
-  if (cam.width > 0 && model !== undefined) {
-    const imgData = drawingContext.getImageData(0, 0, width, height);
-    model.detect(imgData).then((predictions) => {
+  if (cam.width > 0 && something !== undefined) {
+    const imgDatayo = drawingContext.getImageData(0, 0, width, height);
+    something.detect(imgDatayo).then((predictions) => {
       for (let p of predictions) {
         let x = p.bbox[0];
         let y = p.bbox[1];
         let w = p.bbox[2];
         let h = p.bbox[3];
+
         strokeWeight(4);
-        stroke(255);
+        stroke(0);
         noFill();
         rect(x, y, w, h);
 

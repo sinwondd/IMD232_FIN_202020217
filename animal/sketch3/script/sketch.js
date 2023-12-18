@@ -37,12 +37,14 @@ function captureMagnify() {
   // 마스크를 씌우보자
   push();
   ellipseMode(CENTER);
-
   noStroke();
+
   let coordY = 0;
-  for (let y = beginY; y < beginY + 20; y += 1) {
+
+  for (let y = beginY; y < beginY + 20; y++) {
     let coordX = 0;
-    for (let x = beginX; x < beginX + 20; x += 1) {
+
+    for (let x = beginX; x < beginX + 20; x++) {
       const pixelIdx = 4 * (cam.width * y + x);
       const r = cam.pixels[pixelIdx + 0];
       const g = cam.pixels[pixelIdx + 1];
@@ -55,7 +57,7 @@ function captureMagnify() {
         maskDiameter / 2
       ) {
         fill(pixelColor);
-        rect(mouseX + coordX - 100, mouseY + coordY - 100, 20);
+        rect(mouseX + coordX - 100, mouseY + coordY - 100, 25);
       }
       coordX += 10;
     }

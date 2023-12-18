@@ -1,3 +1,39 @@
+// Based on JEFF THOMPSONs reading video pixels- webcam tracking in p5js on his youtube channer
+// https://www.youtube.com/watch?v=VYg-YdGpW1o
+// 영상보면서 재구성하여 만들었고 블랜드모드로 필터를 넣고 픽셀을 겹쳐 사각형 픽셀만 로테이션값을 줘서 돌아가게 만들었습니다
+// JEFF THOMPSON의 페이스 트랙킹 원조 코드입니다
+
+// let video;
+
+// function setup() {
+//   createCanvas(windowWidth, windowHeight);
+
+//   video = createCapture(VIDEO);
+//   video.size(width, height);
+//   video.hide();
+// }
+
+// function draw() {
+//   background(255);
+
+//   let gridSize = int(map(mouseX, 0,width, 15,50));
+
+//   video.loadPixels();
+//   for (let y=0; y<video.height; y+=gridSize) {
+//     for (let x=0; x<video.width; x+=gridSize) {
+
+//       let index = (y * video.width + x) * 4;
+//       let r = video.pixels[index];
+//       let dia = map(r, 0,255, gridSize,2);
+
+//       fill(0);
+//       noStroke();
+//       circle(x+gridSize/2,y+gridSize/2, dia);
+//     }
+//   }
+
+// }
+
 let Vid;
 let rotationAngle = 0;
 let filterAdd;
@@ -9,6 +45,7 @@ function setup() {
   Vid.size(width, height);
   Vid.hide();
   noStroke();
+  frameRate(30);
   filterAdd = createGraphics(width, height);
 
   console.log(Vid);
@@ -39,25 +76,18 @@ function draw() {
 
       let dia = map(r, 0, 255, gridSize, 2);
 
-      // // 픽셀 위에 애니 더하귀
-      // let bounceX = sin(frameCount * 0.15);
-      // let bounceY = cos(frameCount * 0.15);
-      // let bouncingX = x + gridSize / 2 + bounceX * 5;
-      // let bouncingY = y + gridSize / 2 + bounceY * 5;
-      // rect(bouncingX, bouncingY, dia);
+      let rotateX = sin(frameCount * 0.1);
+      let rotateY = cos(frameCount * 0.1);
+      let rotatingX = x + gridSize / 2 + rotateX;
+      let rotatingY = y + gridSize / 2 + rotateY;
 
-      let bounceX = sin(frameCount * 0.1);
-      let bounceY = cos(frameCount * 0.1);
-      let bouncingX = x + gridSize / 2 + bounceX;
-      let bouncingY = y + gridSize / 2 + bounceY;
-
-      rotationAngle += radians(1.5); //회전스피드
+      rotationAngle += radians(1.5);
 
       push();
-      translate(bouncingX, bouncingY);
+      translate(rotatingX, rotatingY);
       rotate(rotationAngle);
 
-      rect(-dia / 2, -dia / 2, dia, dia); // 위치지정
+      rect(-dia / 2, -dia / 2, dia, dia);
       pop();
 
       fill(random(255), random(255), random(255), 60);
